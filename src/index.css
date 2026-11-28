@@ -1,0 +1,593 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --font-sans: "Geist", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", monospace;
+}
+
+:root {
+  --bg-page-light: #f8f9fa;
+  --bg-page-dark: #0b0f17;
+  --bg-surface-light: #ffffff;
+  --bg-surface-dark: #131a24;
+  --bg-subtle-light: #f1f3f4;
+  --bg-subtle-dark: #1b2432;
+  --ink-primary-light: #202124;
+  --ink-primary-dark: #f1f5f9;
+  --ink-secondary-light: #4b5563;
+  --ink-secondary-dark: #a8b5c8;
+  --ink-muted-light: #5f6368;
+  --ink-muted-dark: #94a3b8;
+  --line-subtle-light: rgba(32, 34, 36, 0.09);
+  --line-subtle-dark: rgba(226, 232, 240, 0.11);
+  --line-strong-light: rgba(32, 34, 36, 0.16);
+  --line-strong-dark: rgba(226, 232, 240, 0.22);
+  --accent-primary-light: #1a73e8;
+  --accent-primary-dark: #7baaf7;
+  --accent-soft-light: #e8f0fe;
+  --accent-soft-dark: rgba(123, 170, 247, 0.18);
+  --accent-amber-light: #b45309;
+  --accent-amber-dark: #fbbf24;
+  --accent-emerald-light: #137333;
+  --accent-emerald-dark: #34d399;
+  --accent-danger-light: #c5221f;
+  --accent-danger-dark: #f87171;
+  --pill-gpt-fg-light: #0369a1;
+  --pill-gpt-fg-dark: #7dd3fc;
+  --pill-claude-fg-light: #9a3412;
+  --pill-claude-fg-dark: #fcd34d;
+  --pill-gemini-fg-light: #1557b0;
+  --pill-gemini-fg-dark: #93c5fd;
+  --pill-qwen-fg-light: #6d28d9;
+  --pill-qwen-fg-dark: #c4b5fd;
+  --pill-kimi-fg-light: #0f766e;
+  --pill-kimi-fg-dark: #5eead4;
+  --pill-deepseek-fg-light: #3730a3;
+  --pill-deepseek-fg-dark: #a5b4fc;
+  --rank-1-fg-light: #92400e;
+  --rank-1-fg-dark: #fde68a;
+  --rank-2-fg-light: #334155;
+  --rank-2-fg-dark: #e2e8f0;
+  --rank-3-fg-light: #9a3412;
+  --rank-3-fg-dark: #fed7aa;
+  --kpi-1-light: #1d4ed8;
+  --kpi-1-dark: #60a5fa;
+  --kpi-2-light: #6d28d9;
+  --kpi-2-dark: #a78bfa;
+  --kpi-3-light: #0f766e;
+  --kpi-3-dark: #2dd4bf;
+  --kpi-4-light: #b45309;
+  --kpi-4-dark: #fbbf24;
+  --kpi-5-light: #047857;
+  --kpi-5-dark: #34d399;
+  --card-shadow-light: 0 1px 2px rgba(32, 34, 36, 0.04), 0 6px 20px rgba(32, 34, 36, 0.04);
+  --card-shadow-dark: 0 1px 2px rgba(0, 0, 0, 0.28), 0 10px 28px rgba(0, 0, 0, 0.32);
+
+  --bg-page: var(--bg-page-light);
+  --bg-surface: var(--bg-surface-light);
+  --bg-subtle: var(--bg-subtle-light);
+  --ink-primary: var(--ink-primary-light);
+  --ink-secondary: var(--ink-secondary-light);
+  --ink-muted: var(--ink-muted-light);
+  --line-subtle: var(--line-subtle-light);
+  --line-strong: var(--line-strong-light);
+  --accent-primary: var(--accent-primary-light);
+  --accent-soft: var(--accent-soft-light);
+  --accent-amber: var(--accent-amber-light);
+  --accent-emerald: var(--accent-emerald-light);
+  --accent-danger: var(--accent-danger-light);
+  --card-shadow: var(--card-shadow-light);
+  --pill-gpt-fg: var(--pill-gpt-fg-light);
+  --pill-claude-fg: var(--pill-claude-fg-light);
+  --pill-gemini-fg: var(--pill-gemini-fg-light);
+  --pill-qwen-fg: var(--pill-qwen-fg-light);
+  --pill-kimi-fg: var(--pill-kimi-fg-light);
+  --pill-deepseek-fg: var(--pill-deepseek-fg-light);
+  --rank-1-fg: var(--rank-1-fg-light);
+  --rank-2-fg: var(--rank-2-fg-light);
+  --rank-3-fg: var(--rank-3-fg-light);
+  --kpi-1: var(--kpi-1-light);
+  --kpi-2: var(--kpi-2-light);
+  --kpi-3: var(--kpi-3-light);
+  --kpi-4: var(--kpi-4-light);
+  --kpi-5: var(--kpi-5-light);
+
+  color-scheme: light;
+  color: var(--ink-primary);
+  accent-color: var(--accent-primary);
+  background-color: var(--bg-page);
+}
+
+:root[data-theme="dark"] {
+  --bg-page: var(--bg-page-dark);
+  --bg-surface: var(--bg-surface-dark);
+  --bg-subtle: var(--bg-subtle-dark);
+  --ink-primary: var(--ink-primary-dark);
+  --ink-secondary: var(--ink-secondary-dark);
+  --ink-muted: var(--ink-muted-dark);
+  --line-subtle: var(--line-subtle-dark);
+  --line-strong: var(--line-strong-dark);
+  --accent-primary: var(--accent-primary-dark);
+  --accent-soft: var(--accent-soft-dark);
+  --accent-amber: var(--accent-amber-dark);
+  --accent-emerald: var(--accent-emerald-dark);
+  --accent-danger: var(--accent-danger-dark);
+  --card-shadow: var(--card-shadow-dark);
+  --pill-gpt-fg: var(--pill-gpt-fg-dark);
+  --pill-claude-fg: var(--pill-claude-fg-dark);
+  --pill-gemini-fg: var(--pill-gemini-fg-dark);
+  --pill-qwen-fg: var(--pill-qwen-fg-dark);
+  --pill-kimi-fg: var(--pill-kimi-fg-dark);
+  --pill-deepseek-fg: var(--pill-deepseek-fg-dark);
+  --rank-1-fg: var(--rank-1-fg-dark);
+  --rank-2-fg: var(--rank-2-fg-dark);
+  --rank-3-fg: var(--rank-3-fg-dark);
+  --kpi-1: var(--kpi-1-dark);
+  --kpi-2: var(--kpi-2-dark);
+  --kpi-3: var(--kpi-3-dark);
+  --kpi-4: var(--kpi-4-dark);
+  --kpi-5: var(--kpi-5-dark);
+
+  color-scheme: dark;
+  color: var(--ink-primary);
+  accent-color: var(--accent-primary);
+  background-color: var(--bg-page);
+}
+
+@supports (color: light-dark(white, black)) {
+  :root {
+    --bg-page: light-dark(var(--bg-page-light), var(--bg-page-dark));
+    --bg-surface: light-dark(var(--bg-surface-light), var(--bg-surface-dark));
+    --bg-subtle: light-dark(var(--bg-subtle-light), var(--bg-subtle-dark));
+    --ink-primary: light-dark(var(--ink-primary-light), var(--ink-primary-dark));
+    --ink-secondary: light-dark(var(--ink-secondary-light), var(--ink-secondary-dark));
+    --ink-muted: light-dark(var(--ink-muted-light), var(--ink-muted-dark));
+    --line-subtle: light-dark(var(--line-subtle-light), var(--line-subtle-dark));
+    --line-strong: light-dark(var(--line-strong-light), var(--line-strong-dark));
+    --accent-primary: light-dark(var(--accent-primary-light), var(--accent-primary-dark));
+    --accent-soft: light-dark(var(--accent-soft-light), var(--accent-soft-dark));
+    --accent-amber: light-dark(var(--accent-amber-light), var(--accent-amber-dark));
+    --accent-emerald: light-dark(var(--accent-emerald-light), var(--accent-emerald-dark));
+    --accent-danger: light-dark(var(--accent-danger-light), var(--accent-danger-dark));
+    --pill-gpt-fg: light-dark(var(--pill-gpt-fg-light), var(--pill-gpt-fg-dark));
+    --pill-claude-fg: light-dark(var(--pill-claude-fg-light), var(--pill-claude-fg-dark));
+    --pill-gemini-fg: light-dark(var(--pill-gemini-fg-light), var(--pill-gemini-fg-dark));
+    --pill-qwen-fg: light-dark(var(--pill-qwen-fg-light), var(--pill-qwen-fg-dark));
+    --pill-kimi-fg: light-dark(var(--pill-kimi-fg-light), var(--pill-kimi-fg-dark));
+    --pill-deepseek-fg: light-dark(var(--pill-deepseek-fg-light), var(--pill-deepseek-fg-dark));
+    --rank-1-fg: light-dark(var(--rank-1-fg-light), var(--rank-1-fg-dark));
+    --rank-2-fg: light-dark(var(--rank-2-fg-light), var(--rank-2-fg-dark));
+    --rank-3-fg: light-dark(var(--rank-3-fg-light), var(--rank-3-fg-dark));
+    --kpi-1: light-dark(var(--kpi-1-light), var(--kpi-1-dark));
+    --kpi-2: light-dark(var(--kpi-2-light), var(--kpi-2-dark));
+    --kpi-3: light-dark(var(--kpi-3-light), var(--kpi-3-dark));
+    --kpi-4: light-dark(var(--kpi-4-light), var(--kpi-4-dark));
+    --kpi-5: light-dark(var(--kpi-5-light), var(--kpi-5-dark));
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-block-size: 100%;
+  background: var(--bg-page);
+  color: var(--ink-primary);
+  font-family: "Geist", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display,
+.font-editorial,
+.font-serif-display {
+  font-family: "Geist", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  letter-spacing: -0.028em;
+}
+
+.font-mono-metric {
+  font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Balanced CJK typography when switched to Chinese: avoid cramped negative Latin tracking & harsh uppercase spacing */
+:root[lang="zh-CN"] {
+  font-feature-settings: "kern" 1;
+}
+
+:root[lang="zh-CN"] .font-display,
+:root[lang="zh-CN"] .font-editorial,
+:root[lang="zh-CN"] .font-serif-display {
+  letter-spacing: 0.005em;
+  line-height: 1.32;
+}
+
+:root[lang="zh-CN"] .tracking-tight {
+  letter-spacing: 0em;
+}
+
+:root[lang="zh-CN"] .tracking-widest,
+:root[lang="zh-CN"] .tracking-wider {
+  letter-spacing: 0.04em;
+}
+
+.tabular-nums-clean {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Academic editorial figure plate (crisp hairline border, subtle precision surface) */
+.paper-plate {
+  background: var(--bg-surface);
+  border: 1px solid var(--line-subtle);
+  border-radius: 0.75rem;
+}
+
+/* Subtle alternating academic band background */
+.paper-band {
+  background: var(--bg-surface);
+  border-block: 1px solid var(--line-subtle);
+}
+
+/* LaTeX booktabs-inspired academic table styling */
+.metric-table.booktabs-table thead th {
+  border-block-start: 2px solid var(--ink-primary);
+  border-block-end: 1px solid var(--line-strong);
+  background: transparent;
+}
+
+.metric-table.booktabs-table tbody tr:last-child td,
+.metric-table.booktabs-table tbody tr:last-child th {
+  border-block-end: 2px solid var(--ink-primary);
+}
+
+/* Elevated utility card (used on interactive dashboards: Leaderboard / Explorer / Studio) */
+.rd-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line-subtle);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+}
+
+/* Component-specific dark cinema stage — forced dark regardless of page theme */
+.cinema-stage {
+  color-scheme: only dark;
+  background-color: #0b0f17;
+  color: #f1f5f9;
+  accent-color: #669df6;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+/* Clean zero-blur photographic vignette scrim: preserves razor-sharp 20-task mosaic while ensuring crisp white typography contrast */
+.hero-optical-scrim {
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 50% 49%,
+      rgba(12, 16, 24, 0.54) 0%,
+      rgba(12, 16, 24, 0.26) 56%,
+      rgba(12, 16, 24, 0.12) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(12, 16, 24, 0.14) 0%,
+      rgba(12, 16, 24, 0.04) 45%,
+      rgba(12, 16, 24, 0.36) 100%
+    );
+}
+
+/* Subtle metric ruler ticks for score & error bars */
+.metric-ruler-ticks {
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(148, 163, 184, 0.25) 0 1px,
+      transparent 1px 10%
+    );
+  background-size: 100% 6px;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+
+/* Bespoke RoboMetriX typographic wordmark gradients */
+.rmx-wordmark-metri {
+  background-image: linear-gradient(108deg, #1d4ed8 0%, #0284c7 58%, #0d9488 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.rmx-wordmark-x {
+  background-image: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme="dark"] .rmx-wordmark-metri {
+  background-image: linear-gradient(108deg, #60a5fa 0%, #38bdf8 58%, #2dd4bf 100%);
+}
+
+:root[data-theme="dark"] .rmx-wordmark-x {
+  background-image: linear-gradient(135deg, #fcd34d 0%, #fb923c 100%);
+}
+
+/* Precision segmented-pill navbar links with non-color active indicator (WCAG 1.4.1) */
+.nav-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2rem;
+  padding: 0 0.95rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: color 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.nav-pill:hover {
+  color: var(--ink-primary);
+}
+
+.nav-pill[aria-current="page"],
+.nav-pill[data-section-active="true"] {
+  color: var(--ink-primary);
+  background: var(--bg-surface);
+  border-color: var(--line-subtle);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  font-weight: 600;
+}
+
+.nav-pill[aria-current="page"]::before,
+.nav-pill[data-section-active="true"]::before {
+  content: "";
+  inline-size: 0.375rem;
+  block-size: 0.375rem;
+  border-radius: 9999px;
+  background: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+}
+
+/* Accessible single-row pill/underline tablist */
+.metric-tablist {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 0.35rem;
+  scrollbar-width: none;
+}
+
+.metric-tablist::-webkit-scrollbar {
+  display: none;
+}
+
+.metric-tab {
+  position: relative;
+  flex: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+.metric-tab:hover {
+  color: var(--ink-primary);
+  background: var(--bg-subtle);
+}
+
+.metric-tab[aria-selected="true"] {
+  color: var(--accent-primary);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+
+.metric-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.9rem;
+  inset-block-end: 0.15rem;
+  border-block-end: 2px solid var(--accent-primary);
+}
+
+@layer components {
+  /* Responsive & sortable semantic tables (inside @layer components so utility classes work cleanly) */
+  .table-wrapper {
+    overflow: auto;
+    max-inline-size: 100%;
+    container-type: inline-size;
+    background: var(--bg-surface);
+  }
+
+  .table-wrapper:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .metric-table {
+    width: 100%;
+    min-inline-size: 640px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.875rem;
+  }
+
+  .metric-table thead {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+  }
+
+  .metric-table thead th {
+    background: var(--bg-surface);
+    color: var(--ink-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.72rem 0.5rem;
+    border-block-end: 1px solid var(--line-subtle);
+    white-space: nowrap;
+  }
+
+  .metric-table thead th:has(> button) {
+    padding: 0;
+  }
+
+  .metric-table thead th > button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: 100%;
+    min-block-size: 2.5rem;
+    padding: 0.72rem 0.5rem;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: inherit;
+  }
+
+  .metric-table thead th > button:hover {
+    color: var(--ink-primary);
+  }
+
+  .metric-table thead th[aria-sort] > button {
+    color: var(--accent-primary);
+  }
+
+  .metric-table tbody th {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 1;
+    background: var(--bg-surface);
+    color: var(--ink-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .metric-table tbody td,
+  .metric-table tbody th {
+    padding: 0.78rem 0.5rem;
+    border-block-end: 1px solid var(--line-subtle);
+    vertical-align: middle;
+  }
+
+  /* Match card header horizontal inset (px-6 = 1.5rem) on outer table edges */
+  .metric-table thead th:first-child:not(:has(> button)),
+  .metric-table thead th:first-child > button,
+  .metric-table tbody td:first-child,
+  .metric-table tbody th:first-child {
+    padding-inline-start: 1.5rem;
+  }
+
+  .metric-table thead th:last-child:not(:has(> button)),
+  .metric-table thead th:last-child > button,
+  .metric-table tbody td:last-child,
+  .metric-table tbody th:last-child {
+    padding-inline-end: 1.5rem;
+  }
+
+  .metric-table.matrix-table thead th {
+    padding: 0.7rem 0.4rem;
+  }
+
+  .metric-table.matrix-table tbody td,
+  .metric-table.matrix-table tbody th {
+    padding: 0.35rem 0.35rem;
+  }
+
+  .metric-table.matrix-table tbody th {
+    padding-inline: 0.65rem;
+    font-size: 0.8125rem;
+  }
+
+  .metric-table.matrix-table thead th:first-child,
+  .metric-table.matrix-table tbody td:first-child {
+    padding-inline-start: 1.5rem;
+    padding-inline-end: 0.75rem;
+  }
+
+  .metric-table.matrix-table thead th:last-child,
+  .metric-table.matrix-table tbody td:last-child {
+    padding-inline-end: 1.5rem;
+  }
+
+  .metric-table.matrix-table thead th:nth-child(n + 3),
+  .metric-table.matrix-table tbody td:nth-child(n + 3) {
+    text-align: center;
+  }
+
+  .metric-table tbody tr:last-child td,
+  .metric-table tbody tr:last-child th {
+    border-block-end: 0;
+  }
+
+  .metric-table tbody tr:hover td,
+  .metric-table tbody tr:hover th {
+    background: var(--bg-subtle);
+  }
+}
+
+/* Native top-layer modal dialog */
+dialog.metric-dialog {
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line-subtle);
+  border-radius: 1.25rem;
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  max-inline-size: min(94vw, 1080px);
+  max-block-size: 88dvh;
+  overflow: auto;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.28);
+}
+
+dialog.metric-dialog::backdrop {
+  background: rgba(15, 23, 42, 0.52);
+  backdrop-filter: blur(4px);
+}
+
+.sr-only-status {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,166 @@
+import type { Lang } from '../types/benchmark';
+
+export const UI_TEXT = {
+  en: {
+    navHome: 'Overview',
+    navLeaderboard: 'Leaderboard',
+    navExplorer: 'Explorer',
+    navCompare: 'Compare',
+    code: 'Code',
+    paperBadge: 'CVPR Benchmark · Metric-Constrained Manipulation',
+    heroTitle: 'RoboMetriX',
+    heroSubtitle:
+      'Benchmarking interactive metric reasoning and metric-grounded manipulation for vision-language models across 20 parameterized tasks and 3,600 trajectories.',
+    ctaExplore: 'Explore 3,600 Trajectories',
+    ctaLeaderboard: 'Inspect Leaderboard',
+    ctaCompare: 'QA vs. Execution Diff',
+    kpiTasks: 'Parameterized Tasks',
+    kpiModels: 'Frontier VLMs',
+    kpiTrajs: 'Evaluated Trajectories',
+    kpiTokens: 'Tokens Analyzed',
+    kpiRobots: 'Robot Platforms',
+    sectionWhyTitle: 'Paired Evaluation Protocols & Task Formulation',
+    sectionWhyLead:
+      'Every task pairs active metric acquisition with episode-varying numerical manipulation on matched initial scenes under a shared robot interface.',
+    protocolQaTitle: 'Embodied Metric QA',
+    protocolQaDesc:
+      'Agents retain full robot control to move wrist cameras, probe geometry, and infer absolute lengths, angles, areas, and volumes before answering.',
+    protocolExecTitle: 'Metric-Constrained Execution',
+    protocolExecDesc:
+      'In the exact same initial scene, agents acquire metric evidence online and physically manipulate objects to satisfy explicit numerical targets under hard validity checks.',
+    sectionFindingsTitle: 'Empirical Findings from 3,600 Trajectories',
+    sectionFindingsLead:
+      'Systematic analysis across nine frontier VLMs shows how leading models spontaneously turn the robot into a measuring instrument—and where metric competence breaks down during execution.',
+    tabStrategies: 'Active Measurement Strategies',
+    tabGap: 'Understanding–Execution Gap',
+    tabGuidance: 'Measurement Guidance (+40 pp)',
+    openStudio: 'Open in Playback Studio',
+    openCompare: 'Compare QA vs. Execution',
+    sectionTasksTitle: '20 Parameterized Tasks · 5 Categories',
+    sectionTasksLead:
+      'Every task varies physical goals across episodes and runs under both Embodied Metric QA and Metric-Constrained Execution.',
+    allCategories: 'All Categories',
+    viewTrajs: 'Browse 180 trajectories',
+    sectionFrameworkTitle: 'Unified Multi-Robot & Metric-Asset Framework',
+    sectionFrameworkLead:
+      'Built on Isaac Sim 6.0.1, Isaac Lab 3.0, and cuRobo collision-aware motion planning with a single Cartesian tool-call interface across six robot platforms.',
+    lbTitle: 'Benchmark Leaderboard',
+    lbSubtitle:
+      '9 frontier VLMs across 20 tasks × 10 seeds (3,600 trajectories) on Franka Panda. Category-balanced mean weights GAS, DDC, ARC, SPF, and CGM equally.',
+    lbTabMain: 'Category Leaderboard',
+    lbTabMatrix: '9 × 20 Task Heatmap',
+    lbTabCross: 'Cross-Platform',
+    lbTabGuidance: 'Measurement Guidance',
+    execution: 'Execution',
+    qa: 'Metric QA',
+    gapMode: 'Gap (QA − Exec)',
+    explorerTitle: 'Trajectory Explorer',
+    explorerSubtitle:
+      'Filter, sort, and inspect all 3,600 real trajectories across 9 VLMs, 2 paired protocols, 20 tasks, and 10 seeds.',
+    bundledOnly: 'Playable local demos only',
+    searchPlaceholder: 'Search task, model, instruction, or failure...',
+    resetFilters: 'Reset filters',
+    gridView: 'Gallery',
+    tableView: 'Table',
+    exportCsv: 'Export CSV',
+    compareTitle: 'Side-by-Side Trajectory Compare',
+    compareSubtitle:
+      'Inspect matched initial scenes across paired protocols (QA vs. Execution) or compare two frontier VLMs head-to-head on the exact same task and seed.',
+    modePaired: 'Paired Protocol (QA vs. Execution)',
+    modeCross: 'Cross-Model (Model A vs. Model B)',
+    backExplorer: 'Back to Explorer',
+    stepInspector: 'Step Inspector',
+    metricsTab: 'Metrics & Constraints',
+    promptsTab: 'System & Tools',
+    prevRound: 'Prev Round',
+    nextRound: 'Next Round',
+    nextError: 'Jump to Error',
+    syncPlay: 'Sync Play / Pause',
+    videoUnavailableTitle: 'Full 14 GB Media Archive Ready for Remote Mount',
+    videoUnavailableDesc:
+      'All 3,600 episode scores, errors, constraints, and instructions are loaded live. Full video & frame replay is bundled for 16 curated showcase trajectories and scales to all 3,600 episodes when VITE_MEDIA_BASE_URL points to the hosted archive.',
+  },
+  zh: {
+    navHome: '项目概览',
+    navLeaderboard: '评测榜单',
+    navExplorer: '轨迹浏览',
+    navCompare: '同屏对比',
+    code: '代码仓库',
+    paperBadge: 'CVPR 评测基准 · 度量约束机器人操作',
+    heroTitle: 'RoboMetriX',
+    heroSubtitle:
+      '面向视觉语言模型的度量约束操作基准：在 20 项参数化任务与 3,600 条完整交互轨迹上，配对评测交互式度量推理与度量驱动执行能力。',
+    ctaExplore: '浏览 3,600 条轨迹',
+    ctaLeaderboard: '查看交互榜单',
+    ctaCompare: 'QA 对比执行',
+    kpiTasks: '参数化任务',
+    kpiModels: '前沿视觉语言模型',
+    kpiTrajs: '完整评测轨迹',
+    kpiTokens: '分析总 Tokens',
+    kpiRobots: '支持机器人平台',
+    sectionWhyTitle: '配对评测协议与任务形式化设计',
+    sectionWhyLead:
+      '每项任务均在完全一致的初始场景和统一机器人控制接口下，配对评测主动物理测量与回合动态变化的数值约束操作。',
+    protocolQaTitle: 'Embodied Metric QA（具身度量问答）',
+    protocolQaDesc:
+      '模型保有完整机械臂控制权，可主动调整腕部视角、移动探查几何关系，进而估计绝对长度、角度、面积与体积。',
+    protocolExecTitle: 'Metric-Constrained Execution（度量约束执行）',
+    protocolExecDesc:
+      '在完全相同的初始布局中，模型需在线获取度量信息并完成物理操作，按物理误差与任务硬约束严格打分。',
+    sectionFindingsTitle: '基于 3,600 条轨迹的核心实验发现',
+    sectionFindingsLead:
+      '对 9 个前沿 VLM 的系统剖析表明：领先模型会自发将机械臂转化为物理测量仪器，但在将度量理解兑现为可靠执行时仍存在持续鸿沟。',
+    tabStrategies: '三类主动测量策略',
+    tabGap: '理解—执行鸿沟',
+    tabGuidance: '显式测量引导 (+40 pp)',
+    openStudio: '进入回放工作台',
+    openCompare: '同屏对比 QA 与执行',
+    sectionTasksTitle: '20 项参数化任务 · 5 大类别',
+    sectionTasksLead:
+      '每项任务在回合间动态变化目标数值，且全部支持 Embodied Metric QA 与 Metric-Constrained Execution 配对评测。',
+    allCategories: '全部类别',
+    viewTrajs: '查看该任务 180 条轨迹',
+    sectionFrameworkTitle: '统一多机型仿真与度量资产框架',
+    sectionFrameworkLead:
+      '基于 Isaac Sim 6.0.1、Isaac Lab 3.0 与 cuRobo 避障轨迹规划构建，一套笛卡尔末端工具接口无缝支持 6 种机器人平台。',
+    lbTitle: '交互式评测榜单',
+    lbSubtitle:
+      '9 个前沿 VLM 在 Franka Panda 上完成 20 任务 × 10 种子（共 3,600 条轨迹）。总均分对 GAS、DDC、ARC、SPF、CGM 五类等权平均。',
+    lbTabMain: '类别总榜',
+    lbTabMatrix: '9 × 20 任务热力图',
+    lbTabCross: '跨平台评测',
+    lbTabGuidance: '测量引导消融',
+    execution: '执行 (Execution)',
+    qa: '度量问答 (QA)',
+    gapMode: '差值 (QA − Exec)',
+    explorerTitle: '3,600 条轨迹浏览器',
+    explorerSubtitle:
+      '按协议、任务类别、模型、种子、分数与诊断标签毫秒级检索全部 3,600 条真实轨迹，所有筛选自动同步至 URL。',
+    bundledOnly: '仅看内置可播放精选轨迹',
+    searchPlaceholder: '搜索任务名、模型、指令或失败原因...',
+    resetFilters: '重置筛选',
+    gridView: '画廊视图',
+    tableView: '数据表格',
+    exportCsv: '导出 CSV',
+    compareTitle: '同场景分屏对比',
+    compareSubtitle:
+      '在完全一致的初始场景下，并排对照同一模型的 QA 与 Execution 轨迹，或横向对比任意两个前沿 VLM 的行为差异。',
+    modePaired: '配对协议（QA vs. Execution）',
+    modeCross: '跨模型对比（模型 A vs. 模型 B）',
+    backExplorer: '返回轨迹浏览器',
+    stepInspector: '逐轮检查器',
+    metricsTab: '误差与硬约束',
+    promptsTab: '系统提示与工具',
+    prevRound: '上一轮',
+    nextRound: '下一轮',
+    nextError: '跳转异常轮次',
+    syncPlay: '同步播放 / 暂停',
+    videoUnavailableTitle: '完整 14 GB 媒体归档已就绪，可挂载远端媒体桶',
+    videoUnavailableDesc:
+      '当前页面已实时载入全部 3,600 条轨迹的真实分数、误差、硬约束与指令；内置了 16 条代表性精选轨迹的完整视频与逐轮回放。配置 VITE_MEDIA_BASE_URL 指向托管归档后，全部 3,600 条视频即可无缝点播。',
+  },
+} as const;
+
+export function t(lang: Lang) {
+  return UI_TEXT[lang];
+}
